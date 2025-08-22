@@ -11,3 +11,5 @@ async function ConnectDb() {
     process.exit(1)
   }
 }
+
+export default ConnectDb;

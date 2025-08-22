@@ -12,12 +12,15 @@ import ManageUser from "./pages/Admin/ManageUser.jsx";
 import UserDashboard from "./pages/User/UserDashboard.jsx";
 import MyTask from "./pages/User/MyTask.jsx";
 import ViewTaskDetails from "./pages/User/ViewTaskDetails.jsx"
+import ProjectManagementUI from "./pages/Home.jsx";
 
 const App = () => {
   return (
     <>
+
       <Router>
         <Routes>
+          <Route path="/" element={<ProjectManagementUI/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SingnUp />} />
 

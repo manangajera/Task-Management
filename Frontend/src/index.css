@@ -2,18 +2,44 @@
 
 @import "tailwindcss";
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
 @theme {
     --font—display: "Poppins", "sans—serif";
     --breakpoint—3xl: 1920px;
-    --colo-primary: #1368EC;
+    --color-primary: #1368EC;
 }
 
-@layer base{
-    html{
+@layer base {
+    html {
         font-family: var(--font—display);
     }
-    body{
+
+    body {
         background-color: #fcfbfc;
-        overflow-x:hidden ;
+        overflow-x: hidden;
     }
+}
+
+.input-box {
+    @apply w-full flex justify-between items-center gap-3 text-sm text-black bg-slate-100/50 rounded px-4 py-3 mb-4 mt-3 border border-slate-200 outline-none focus-within:ring-2 focus-within:ring-blue-500;
+}
+
+.input-box input {
+    @apply w-full bg-transparent outline-none;
+}
+
+.btn-primary {
+    @apply w-full bg-blue-500 text-white font-semibold py-2 px-4 rounded shadow-md hover:bg-blue-600 transition duration-200;
 }
