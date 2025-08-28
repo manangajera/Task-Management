@@ -11,14 +11,16 @@ configDotenv();
 const app = express();
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
-// cors
-// app.use(
-//   cors({
-//     origin: process.env.CLIENT_URL,
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//     allowedHeaders: ["Content-Type", "Authorization"],
-//   })
-// );
+cors
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true, // add this if you need cookies/tokens
+  })
+);
+
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/tasks", taskRoutes);

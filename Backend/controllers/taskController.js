@@ -61,7 +61,7 @@ export const getDashboardData = async (req, res) => {
         overDueTasks,
       },
       charts: {
-        taskDistributionRaw,
+        taskDistribution,
         taskPriorityDistribution,
       },
       recentTask,
@@ -142,7 +142,7 @@ export const getUserDashboardData = async (req, res) => {
         overDueTasks,
       },
       charts: {
-        taskDistributionRaw,
+        taskDistribution,
         taskPriorityDistribution,
       },
       recentTask,
@@ -371,15 +371,15 @@ export const updateTaskChecklist = async (req, res) => {
     if (!task) {
       return res.status(404).json({ message: "Task not found" });
     }
-
-    if (!task.assignedTo.includes(req.user._id) || req.user.role !== "admin") {
+    if (!task.assignedTo.includes(req.user._id) && req.user.role !== "admin") {
       return res
         .status(403)
+        
         .json({ message: "You are not authorized to update this task" });
     }
 
     task.todoChecklist = todoChecklist;
-
+    console.log("Received todoChecklist:", task.todoChecklist);
     // auto-update progress based on the todoCheck list
     const completedCount = todoChecklist.filter(
       (item) => item.completed

@@ -8,7 +8,7 @@ const Input = ({ type, placeholder, value, onChange, label }) => {
   };
   return (
     <div className="">
-      {label && <label className="block mb-2 text-slate-800">{label}</label>}
+      {label && <label className="block  text-slate-800">{label}</label>}
       <div className="input-box">
       <input
         type={type === "password" ? (showPassword ? "text" : "password") : type}

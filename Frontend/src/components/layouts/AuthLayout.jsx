@@ -1,5 +1,5 @@
 import React from "react";
-import Auth from "../../assets/Auth_Image/1.png";
+import Auth from "../../assets/Auth_Image/Auth.png";
 
 const AuthLayout = ({ children }) => {
   return (
@@ -10,7 +10,7 @@ const AuthLayout = ({ children }) => {
         <h2 className="text-2xl font-bold mb-6">Task Management</h2>
 
         {/* Scrollable form */}
-        <div className="flex-1 overflow-y-auto pr-2">{children}</div>
+        <div className="flex-1  pr-2">{children}</div>
       </div>
 
       {/* Right side (illustration stays fixed) */}
