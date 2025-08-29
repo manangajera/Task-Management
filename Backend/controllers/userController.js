@@ -5,7 +5,7 @@ import bcrypt from "bcrypt";
 export const getUsers = async (req, res) => {
   try {
     const users = await User.find({ role: "member" }).select("-password");
-    console.log(users);
+    // console.log(users);
     const userWithTaskCount = await Promise.all(
       users.map(async (user) => {
         const pendingTasksCount = await Task.countDocuments({
